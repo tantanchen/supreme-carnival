@@ -1,0 +1,11 @@
+library(ggplot2)
+
+#stacked bar chart of school spending 
+func.barplot <- function(data, ...) {
+  setwd('Charts')
+  file <- paste0(names(data)[2], 'bar.png')
+  png(filename=file)
+  
+ #plot for each FY
+  print(ggplot(data, aes(x = #differentexpenditures, y = #dollaramounts, fill = #differentcounties)) + 
+    geom_bar() + coord_flip()
