@@ -1,6 +1,14 @@
 #REMEMBER TO SET WORKING DIRECTORY
 setwd('Gtown Money')
 
+ #cleaning
+  library(readxl)
+  library(tools)
+#melting
+  library(reshape2)
+#plotting
+  library(ggplot2)
+
 #Generate years
 func.genYears <- function(yearData) {
   years = c()
@@ -20,10 +28,7 @@ func.genYears <- function(yearData) {
 
 #Function to get data only for Brown County
 func.getBC <- function(file) {
-  
-  #libs
-  library(readxl)
-  library(tools)
+ 
   
   #process data
   pre <- read_xlsx(file)
@@ -51,9 +56,7 @@ func.getBC <- function(file) {
 
 #Get data in correct format
 func.formatBC <- function(data) {
-  
-  #import library
-  library(reshape2)
+ 
   
   #Melt
   bc_melt <- melt(data, id=c('DISTRICT'))
@@ -77,8 +80,6 @@ func.formatBC <- function(data) {
 #Line grpah of spending per school by year
 func.plot <- function(data, ...) {
   
-  #import lib
-  library(ggplot2)
   
   #set wd to save graphs to "Charts" folder
   setwd('Charts')
